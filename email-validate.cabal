@@ -1,5 +1,5 @@
 name:           email-validate
-version:        2.3.2.12
+version:        2.4
 license:        BSD3
 license-file:   LICENSE
 author:         George Pollard <porges@porg.es>
@@ -11,15 +11,6 @@ description:    Validating an email address string against RFC 5322
 build-type:     Simple
 stability:      experimental
 cabal-version:  >= 1.10
-
-source-repository head
-    type: git
-    location: git://github.com/Porges/email-validate-hs.git
-
-source-repository this
-    type: git
-    location: git://github.com/Porges/email-validate-hs.git
-    tag: v2.3.2.12
 
 library
     build-depends:
