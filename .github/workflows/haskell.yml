@@ -14,12 +14,29 @@ jobs:
         - 'lts-12'
         - 'lts-13'
         - 'lts-14'
+        - 'lts-15'
+        - 'lts-16'
+        - 'lts-17'
+        - 'lts-18'
+        - 'lts-19'
    
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install Stack
-      run: 'curl -sSL https://get.haskellstack.org/ | sh'
+
+    - name: Cache stack dir
+      uses: actions/cache@v1
+      env: 
+        cache-name: cache-stack-dir
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.resolver }}-${{ hashFiles('*.cabal') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.resolver }}-
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
     - name: Build & Test
       run: stack test --haddock --no-terminal --resolver ${{ matrix.resolver }}
