@@ -14,11 +14,11 @@ cabal-version:  >= 1.10
 
 source-repository head
     type: git
-    location: git://github.com/Porges/email-validate-hs.git
+    location: git://github.com/seereason/email-validate-hs.git
 
 source-repository this
     type: git
-    location: git://github.com/Porges/email-validate-hs.git
+    location: git://github.com/seereason/email-validate-hs.git
     tag: v2.3.2.16
 
 library
